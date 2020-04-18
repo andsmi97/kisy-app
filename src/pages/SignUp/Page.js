@@ -9,10 +9,10 @@ const SignUp = ({ onSignUp, authInProgress, onGoogleSignIn }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const changeEmail = e => setEmail(e.target.value);
-  const changePassword = e => setPassword(e.target.value);
+  const changeEmail = (e) => setEmail(e.target.value);
+  const changePassword = (e) => setPassword(e.target.value);
 
-  const onSignUpSubmit = async event => {
+  const onSignUpSubmit = async (event) => {
     event.preventDefault();
     onSignUp({ email, password });
   };
@@ -22,26 +22,26 @@ const SignUp = ({ onSignUp, authInProgress, onGoogleSignIn }) => {
     <div className={classes.background}>
       <form className={classes.container} onSubmit={onSignUpSubmit}>
         <TextField
-          id="email-input"
-          label="Email"
+          id='email-input'
+          label='Email'
           className={classes.textField}
-          type="email"
-          name="email"
-          autoComplete="login"
-          margin="normal"
-          variant="outlined"
+          type='email'
+          name='email'
+          autoComplete='login'
+          margin='normal'
+          variant='outlined'
           onChange={changeEmail}
           value={email}
         />
         <TextField
-          id="password-inupt"
-          label="Пароль"
+          id='password-inupt'
+          label='Пароль'
           className={classes.textField}
-          type="password"
-          name="password"
-          autoComplete="password"
-          margin="normal"
-          variant="outlined"
+          type='password'
+          name='password'
+          autoComplete='password'
+          margin='normal'
+          variant='outlined'
           value={password}
           onChange={changePassword}
         />
@@ -49,30 +49,30 @@ const SignUp = ({ onSignUp, authInProgress, onGoogleSignIn }) => {
           <Button
             component={Link}
             to={'/'}
-            variant="contained"
-            color="primary"
+            variant='contained'
+            color='primary'
             className={classes.button}
           >
-            Отмена
+            CANCEL
           </Button>
           <Button
-            variant="contained"
-            color="primary"
+            variant='contained'
+            color='primary'
             className={classes.button}
-            type="submit"
+            type='submit'
             disabled={authInProgress}
           >
-            Регистрация
+            REGISTER
           </Button>
         </div>
         <Button
           onClick={onGoogleSignIn}
-          variant="contained"
-          color="primary"
+          variant='contained'
+          color='primary'
           className={classes.button}
           disabled={authInProgress}
         >
-          Войти с Google
+          SIGN IN WITH GOOGLE
         </Button>
       </form>
     </div>
