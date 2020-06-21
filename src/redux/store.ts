@@ -16,19 +16,23 @@ const getMiddleware = () => {
     return applyMiddleware(
       thunkMiddleware,
       myRouterMiddleware,
-      promiseMiddleware
+      promiseMiddleware,
     );
   } else {
     return applyMiddleware(
       thunkMiddleware,
       myRouterMiddleware,
       promiseMiddleware,
-      createLogger()
+      createLogger(),
     );
   }
 };
 
+const wrapperReduce = reducer(history);
+type RootReducerType = typeof wrapperReduce;
+export type AppStateType = ReturnType<RootReducerType>;
+
 export const store = createStore(
   reducer(history),
-  composeWithDevTools(getMiddleware())
+  composeWithDevTools(getMiddleware()),
 );

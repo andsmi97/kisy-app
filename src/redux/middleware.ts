@@ -1,6 +1,6 @@
 import { ASYNC_START, ASYNC_END } from './reducers/common/constants';
 
-const promiseMiddleware = store => next => action => {
+const promiseMiddleware = (store: any) => (next: any) => (action: any) => {
   if (isPromise(action.payload)) {
     store.dispatch({ type: ASYNC_START, subtype: action.type });
 
@@ -8,7 +8,7 @@ const promiseMiddleware = store => next => action => {
     const skipTracking = action.skipTracking;
 
     action.payload.then(
-      res => {
+      (res: any) => {
         const currentState = store.getState();
         if (!skipTracking && currentState.viewChangeCounter !== currentView) {
           return;
@@ -17,7 +17,7 @@ const promiseMiddleware = store => next => action => {
         store.dispatch({ type: ASYNC_END, promise: action.payload });
         store.dispatch(action);
       },
-      error => {
+      (error: any) => {
         const currentState = store.getState();
         if (!skipTracking && currentState.viewChangeCounter !== currentView) {
           return;
@@ -28,7 +28,7 @@ const promiseMiddleware = store => next => action => {
           store.dispatch({ type: ASYNC_END, promise: action.payload });
         }
         store.dispatch(action);
-      }
+      },
     );
 
     return;
@@ -37,6 +37,6 @@ const promiseMiddleware = store => next => action => {
   next(action);
 };
 
-const isPromise = v => v && typeof v.then === 'function';
+const isPromise = (v: any) => v && typeof v.then === 'function';
 
 export { promiseMiddleware };

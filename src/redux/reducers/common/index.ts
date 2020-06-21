@@ -4,9 +4,10 @@ import {
   SIGN_OUT,
   SIGN_IN,
   SIGN_UP,
-  CLOSE_SNACKBAR,
-  OPEN_SNACKBAR,
   SET_CURRENT_USER,
+  CHANGE_DRAWER_STATUS,
+  OPEN_SNACKBAR,
+  CLOSE_SNACKBAR,
 } from './constants';
 import firestoreQueries from '../../../firebase/firestoreQueries';
 import agent from '../../../agent';
@@ -19,9 +20,11 @@ const defaultState = {
   snackType: null,
   snackMessage: null,
   error: false,
+  redirectTo: '/',
+  isLoading: false,
 };
 
-export default (state = defaultState, action) => {
+export default (state = defaultState, action: any) => {
   switch (action.type) {
     case APP_LOAD:
       return {
@@ -61,6 +64,11 @@ export default (state = defaultState, action) => {
       };
     case CLOSE_SNACKBAR:
       return { ...state, snackStatus: false };
+    case CHANGE_DRAWER_STATUS:
+      return {
+        ...state,
+        drawerStatus: action.payload,
+      };
     case OPEN_SNACKBAR:
       return {
         ...state,

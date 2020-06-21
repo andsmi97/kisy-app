@@ -7,7 +7,10 @@ import 'firebase/storage';
 import { config } from '../config/firebase';
 firebase.initializeApp(config);
 
-export const createUserProfileDocument = async (userAuth, additionalData) => {
+export const createUserProfileDocument = async (
+  userAuth: any,
+  additionalData?: any,
+) => {
   if (!userAuth) {
     return;
   }

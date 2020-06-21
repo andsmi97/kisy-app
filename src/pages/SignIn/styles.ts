@@ -5,7 +5,6 @@ export const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     justifyContent: 'center',
     flexDirection: 'column',
-    width: '100%',
   },
   textField: {
     marginLeft: theme.spacing(1),
@@ -13,29 +12,15 @@ export const useStyles = makeStyles((theme) => ({
   },
   button: {
     margin: theme.spacing(1),
-    background: theme.palette.secondary.main,
-    '&:hover': {
-      background: theme.palette.secondary.dark,
-    },
   },
-  textFieldRoot: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-  },
-  selectField: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(1),
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
+  buttonsWrapper: {
+    display: 'flex',
+    justifyContent: 'space-between',
   },
   background: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: theme.spacing(3),
-  },
-  imageWrapper: {
-    padding: theme.spacing(3),
+    // backgroundColor: theme.palette.primary.light,
+    height: '100vh',
+    width: '100vw',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',

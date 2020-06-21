@@ -1,74 +1,76 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import { useStyles } from './styles';
-import { ReactComponent as SignImage } from '../../assets/images/Sign.svg';
-const SignIn = ({ onSignIn, authInProgress, onGoogleSignIn }) => {
+import { authInProgress } from '../../redux/reducers/common/actions';
+
+export interface SignInProps {
+  authInProgress: any;
+  onGoogleSignIn: any;
+}
+
+const SignIn: FC<SignInProps> = ({ authInProgress, onGoogleSignIn }) => {
   const classes = useStyles();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
 
-  const changeEmail = (e) => setEmail(e.target.value);
-  const changePassword = (e) => setPassword(e.target.value);
+  // const changeEmail = (e:any) => setEmail(e.target.value);
+  // const changePassword = (e:any) => setPassword(e.target.value);
 
-  const onSignInSubmit = async (event) => {
-    event.preventDefault();
-    onSignIn({ email, password });
-  };
+  // const onSignInSubmit = async (e:any) => {
+  //   e.preventDefault();
+  //   onSignIn({ email, password });
+  // };
 
   return (
-    <>
-      <div className={classes.imageWrapper}>
-        <SignImage className={classes.image} />
-      </div>
-      <div className={classes.background}>
-        <form className={classes.container} onSubmit={onSignInSubmit}>
-          <TextField
-            id='login-input'
-            label='Email'
-            className={classes.textField}
-            type='text'
-            name='Email'
-            margin='normal'
-            variant='filled'
-            color='secondary'
-            value={email}
-            onChange={changeEmail}
-          />
-          <TextField
-            id='password-inupt'
-            label='Password'
-            className={classes.textField}
-            type='password'
-            name='password'
-            margin='normal'
-            variant='filled'
-            color='secondary'
-            value={password}
-            onChange={changePassword}
-          />
-          <Button
-            type='submit'
-            variant='contained'
-            color='primary'
-            className={classes.button}
-            disabled={authInProgress}
-          >
-            LOGIN
-          </Button>
-          <Button
-            component={Link}
-            to={'/'}
-            variant='contained'
-            color='primary'
-            className={classes.button}
-          >
-            CANCEL
-          </Button>
-        </form>
-      </div>
-    </>
+    <div className={classes.background}>
+      <form className={classes.container}>
+
+    
+   {/* <TextField
+     id="password-inupt"
+     label="Пароль"
+     className={classes.textField}
+     type="password"
+     name="password"
+     autoComplete="password"
+     margin="normal"
+     variant="outlined"
+     value={password}
+     onChange={changePassword}
+   />
+   <div className={classes.buttonsWrapper}>
+     <Button
+       component={Link}
+       to={'/'}
+       variant="contained"
+       color="primary"
+       className={classes.button}
+     >
+       Отмена
+     </Button>
+     <Button
+       type="submit"
+       variant="contained"
+       color="primary"
+       className={classes.button}
+       disabled={authInProgress}
+     >
+       Войти
+     </Button>
+   </div>  */}
+        <Button
+          onClick={onGoogleSignIn}
+          variant="contained"
+          color="primary"
+          disabled={authInProgress}
+          className={classes.button}
+        >
+          Войти c помощью google
+        </Button>
+      </form>
+    </div>
   );
 };
 

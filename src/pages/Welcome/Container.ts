@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import Welcome from './Page';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: any) => ({
   authInProgress: state.common.authInProgress,
 });
 
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch: any) => ({});
 const WelcomeContainer = connect(mapStateToProps, mapDispatchToProps)(Welcome);
 
 export default WelcomeContainer;

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { REDIRECT } from '../../redux/reducers/common/constants';
 import NotFound from './Page';
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch: any) => ({
   onRedirect: () => dispatch({ type: REDIRECT, redirectTo: '/' }),
 });
 

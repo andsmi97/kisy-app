@@ -1,0 +1,21 @@
+{
+  "pageNotFound": {
+    "title": "Uh, Page not found :(",
+    "return": "Return to main page"
+  },
+  "auth": {
+    "login": "LOGIN",
+    "register": "REGISTER"
+  },
+  "suggestor": {
+    "suggest": "Let's fuck!",
+    "info": "Pick your acceptance level",
+    "level": "Level",
+    "levels": {
+      "Soft": "Soft",
+      "Medium": "Medium",
+      "Hard": "Hard"
+    }
+  },
+  "language": "language"
+}

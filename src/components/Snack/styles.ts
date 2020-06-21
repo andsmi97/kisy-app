@@ -1,25 +1,25 @@
 import { makeStyles } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
 import amber from '@material-ui/core/colors/amber';
-export const useStyles = makeStyles(theme => ({
+export const useStyles = makeStyles((theme) => ({
   close: {
     padding: theme.spacing(1 / 2),
   },
   success: {
     backgroundColor: green[600],
-    flexDirection: 'row!important',
+    flexDirection: 'row',
   },
   error: {
     backgroundColor: theme.palette.error.dark,
-    flexDirection: 'row!important',
+    flexDirection: 'row',
   },
   info: {
     backgroundColor: theme.palette.primary.dark,
-    flexDirection: 'row!important',
+    flexDirection: 'row',
   },
   warning: {
     backgroundColor: amber[700],
-    flexDirection: 'row!important',
+    flexDirection: 'row',
   },
   leftIcon: {
     fontSize: 20,
